@@ -1,0 +1,93 @@
+<script setup>
+</script>
+
+<template>
+    
+    <div class="container1">
+        <div class="page">
+        <span>LOSTandFOUND</span>
+        <p>Taganrog</p>
+        <router-link class="page" to="/index">Вернуться на главную</router-link>
+        <!--<a class="page" href="index.vue">Вернуться на главную</a>-->
+        </div>
+    </div>
+    <div class="container2">
+         <div class="page">Потерял</div>
+         <form>
+            <select id="type" name="type">
+                <option value="lost">Потеря</option>
+                <option value="found">Находка</option>
+            </select>
+            <input type="text" placeholder="ФИО"><br>
+            <input type="text" placeholder="Описание"><br>
+            <input type="number" placeholder="Номер телефона"><br>
+            <select id="category" name="category">
+                <option value="documents">Документы</option>
+                <option value="...">...</option>
+            </select>
+            <input type="date">
+            <input type="submit" value="Submit">
+         </form>
+    </div>
+    
+
+</template>
+
+<style scoped>
+.container1{
+width: 500px;
+height: 1000px;
+background: rgb(238, 237, 237);
+margin: 0%;
+padding: 0%;
+float: left;
+position: absolute;
+font-size: 25px;
+
+
+}
+.container2{
+width: 80%;
+height: 1000px;
+background: rgb(255, 255, 255);
+margin: 0%;
+margin-left: 500px;
+margin-top: 50px;
+padding: 0%;
+float:right;
+position: fixed;
+
+
+}
+.container3{
+background: rgb(0, 0, 0);
+width: 80%;
+height: 50px;
+float: right;
+margin-left: 500px;
+position: fixed;
+
+
+}
+.page{
+    color: #000;
+    text-align: center;
+    padding: 10px;
+}
+.text_style{
+    color: rgb(255, 255, 255);
+    font-size: 17px;
+    font-style:normal;
+    padding: 8%;
+   
+}
+.style_button{
+    background: #8c959d;
+    display: inline-block;
+    color: #fff;
+    padding: 1rem 1.5rem;
+    text-decoration: none;
+    border-radius: 3px;
+    
+}
+</style>
