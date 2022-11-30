@@ -37,7 +37,7 @@ const store = useStore();
                 
             </select><br>
             <input class="form_input" type="date"><br><br>
-            <input class="style_button" type="button" value="Отправить" @click.prevent="store.addNewLostedThing(item)">
+            <input class="style_button" type="button" value="Отправить" @click.prevent="store.addNewLostedThing(123)">
          </form>
     </div>
     

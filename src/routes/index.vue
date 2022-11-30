@@ -66,7 +66,7 @@ box-shadow: 0 4px 16px #ccc;
 
 }
 .page{
-    color: #000;
+    color: rgb(255, 255, 255);
     text-align: center;
     padding: 10px;
     margin-top: 10px;

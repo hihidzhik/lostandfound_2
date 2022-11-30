@@ -1,5 +1,6 @@
 <script setup>
 import { useStore } from '../store/main';
+const mainStore = useStore();
 </script>
 
 <template>
@@ -13,8 +14,9 @@ import { useStore } from '../store/main';
     </div>
     <div class="container2">
          <div class="page">Список потерь</div>
-         <div>
-            {{count}}
+         <div v-for="item in mainStore.things">
+
+            {{item}} 
             <!-- <input v-model="text">
             {{item}} -->
          </div>

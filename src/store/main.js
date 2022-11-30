@@ -13,7 +13,7 @@ export const useStore = defineStore('main', {
     },
     addNewLostedThing(item) {
       this.things.push(item);
-      
+      console.log(item);
     }
   },
 })
