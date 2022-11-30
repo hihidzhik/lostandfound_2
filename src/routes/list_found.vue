@@ -58,12 +58,14 @@ position: fixed;
     color: #000;
     text-align: center;
     padding: 10px;
+
 }
 .text_style{
     color: rgb(255, 255, 255);
     font-size: 17px;
     font-style:normal;
     padding: 8%;
+
    
 }
 .style_button{
@@ -73,6 +75,7 @@ position: fixed;
     padding: 1rem 1.5rem;
     text-decoration: none;
     border-radius: 3px;
+
     
 }
 </style>

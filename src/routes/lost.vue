@@ -1,4 +1,6 @@
 <script setup>
+import { useStore } from '../store/main';
+const store = useStore();
 </script>
 
 <template>
@@ -12,21 +14,30 @@
         </div>
     </div>
     <div class="container2">
-         <div class="page">Потерял</div>
-         <form>
-            <select id="type" name="type">
+         <div class="text_style2">Потерял</div><br>
+         <form class="form_style">
+            <select class="form_input" id="type" name="type">
                 <option value="lost">Потеря</option>
                 <option value="found">Находка</option>
-            </select>
-            <input type="text" placeholder="ФИО"><br>
-            <input type="text" placeholder="Описание"><br>
-            <input type="number" placeholder="Номер телефона"><br>
-            <select id="category" name="category">
+            </select><br>
+            <input class="form_input"
+            :value="text" @input="event => text =event.item.value" type="text" placeholder="ФИО" required><br>
+            <input class="form_input" type="text" placeholder="Описание" required><br>
+            <input  class="form_input" type="number" placeholder="Номер телефона" required><br>
+            <select class="form_input">
+                <option disabled value="">Выберите категорию</option>
+                <option value="other">Прочее</option>
                 <option value="documents">Документы</option>
-                <option value="...">...</option>
-            </select>
-            <input type="date">
-            <input type="submit" value="Submit">
+                <option value="keys">Ключи</option>
+                <option value="tehnic">Техника</option>
+                <option value="pats">Животные</option>
+                <option value="clothes">Одежда и аксессуары</option>
+                <option value="jewelry">Драгоценности</option>
+                <option value="bags">Сумки</option>
+                
+            </select><br>
+            <input class="form_input" type="date"><br><br>
+            <input class="style_button" type="button" value="Отправить" @click.prevent="store.addNewLostedThing(item)">
          </form>
     </div>
     
@@ -73,21 +84,65 @@ position: fixed;
     color: #000;
     text-align: center;
     padding: 10px;
+
+
 }
 .text_style{
     color: rgb(255, 255, 255);
     font-size: 17px;
     font-style:normal;
     padding: 8%;
+
    
 }
 .style_button{
-    background: #8c959d;
+    background: rgb(238, 237, 237);
     display: inline-block;
-    color: #fff;
-    padding: 1rem 1.5rem;
+    color: rgb(0, 0, 0);
+    padding: 10px 20px;
+    border: none;
+    width: 150px;
     text-decoration: none;
-    border-radius: 3px;
+    border-radius: 5px;
+    text-align: center;
+    position: fixed;
+    outline: none;
+    cursor: pointer;
+    transition: 0.3s;
+
     
 }
+.text_style2{
+    color: rgb(0, 0, 0);
+    font-size: 20px;
+    font-style:normal;
+   margin-left: 300px;
+
+}
+.form_style{
+    margin-left: 150px;
+    font-size: 50px;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 16px #ccc;
+    letter-spacing: 1px;
+    width: 300px;
+    padding: 32px;
+    height: 320px;
+
+}
+.form_grup{
+position: relative;
+margin-bottom: 32px;
+}
+.form_input{
+    width: 100%;
+    padding: 0 0 10px 0;
+    border: none;
+    border-bottom: 1px solid #e0e0e0;
+    background-color: transparent;
+    outline: none;
+    transition: 0.3s;
+}
+
 </style>

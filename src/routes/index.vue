@@ -7,7 +7,7 @@
         <div class="page">
         <span>LOSTandFOUND</span>
         <p>Taganrog</p>
-        <a class="page">Описание сайта</a>
+        <a>Описание сайта</a>
         </div>
     </div>
     <div class="container2">
@@ -37,6 +37,7 @@ position: absolute;
 font-size: 25px;
 
 
+
 }
 .container2{
 width: 80%;
@@ -50,6 +51,7 @@ float:right;
 position: fixed;
 
 
+
 }
 .container3{
 background: rgb(34, 32, 32);
@@ -58,6 +60,8 @@ height: 50px;
 float: right;
 margin-left: 500px;
 position: fixed;
+box-shadow: 0 4px 16px #ccc;
+
 
 
 }
@@ -65,13 +69,17 @@ position: fixed;
     color: #000;
     text-align: center;
     padding: 10px;
+    margin-top: 10px;
+    font-size: 28px;
+    
+
 }
 .text_style{
     color: rgb(255, 255, 255);
     font-size: 17px;
     font-style:normal;
-    padding: 8%;
-   
+    margin-left: 150px;
+ 
 }
 .style_button{
     background: rgb(238, 237, 237);
@@ -84,6 +92,9 @@ position: fixed;
     border-radius: 10px;
     margin: 10%;
     position: fixed;
+    border-radius: 10px;
+    box-shadow: 0 4px 16px #ccc;
+
     
 }
 .style_button2{
@@ -98,6 +109,9 @@ position: fixed;
     margin: 10%;
     margin-top: 400px;
     position: fixed;
+    border-radius: 10px;
+    box-shadow: 0 4px 16px #ccc;
+
     
 }
 </style>
