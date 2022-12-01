@@ -13,15 +13,14 @@ const store = useStore();
         <!--<a class="page" href="index.vue">Вернуться на главную</a>-->
         </div>
     </div>
-    <div class="container2">
+    <div id="1" class="container2">
          <div class="text_style2">Потерял</div><br>
          <form class="form_style">
             <select class="form_input" id="type" name="type">
                 <option value="lost">Потеря</option>
                 <option value="found">Находка</option>
             </select><br>
-            <input class="form_input"
-            :value="text" @input="event => text =event.item.value" type="text" placeholder="ФИО" required><br>
+            <input class="form_input" :value="store.newLostThing" @input="store.inputChangeHandler" type="text" placeholder="ФИО" required><br>
             <input class="form_input" type="text" placeholder="Описание" required><br>
             <input  class="form_input" type="number" placeholder="Номер телефона" required><br>
             <select class="form_input">
@@ -37,8 +36,8 @@ const store = useStore();
                 
             </select><br>
             <input class="form_input" type="date"><br><br>
-            <input class="style_button" type="button" value="Отправить" @click.prevent="store.addNewLostedThing(123)">
-         </form>
+            <input class="style_button" type="button" value="Отправить" @click="store.addNewLostedThing" >
+         </form><!--@click.prevent="store.addNewLostedThing(store.newLostThing)" v-on:click="addNewLostedThing"-->
     </div>
     
 

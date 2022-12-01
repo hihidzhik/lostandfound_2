@@ -55,10 +55,10 @@ position: fixed;
 
 }
 .page{
-    color: #000;
+    color: rgb(0, 0, 0);
     text-align: center;
     padding: 10px;
-
+    
 }
 .text_style{
     color: rgb(255, 255, 255);

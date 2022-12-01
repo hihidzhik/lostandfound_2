@@ -14,9 +14,9 @@ const mainStore = useStore();
     </div>
     <div class="container2">
          <div class="page">Список потерь</div>
-         <div v-for="item in mainStore.things">
+         <div v-for="thing in mainStore.things">
 
-            {{item}} 
+            {{ 'ФИО: '+ thing }} 
             <!-- <input v-model="text">
             {{item}} -->
          </div>
