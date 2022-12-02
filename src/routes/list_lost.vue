@@ -14,12 +14,15 @@ const mainStore = useStore();
     </div>
     <div class="container2">
          <div class="page">Список потерь</div>
-         <div v-for="thing in mainStore.things">
+         <div v-for="thing in mainStore.things"  >
+            <p v-for="description in mainStore.thingsDescription"  >
 
-            {{ 'ФИО: '+ thing }} 
+            {{ 'ФИО: '+ thing +' Описание:' + description}} 
             <!-- <input v-model="text">
             {{item}} -->
-         </div>
+         
+            {{  }}<!--v-model="descriotion" v-for="description in mainStore.thingsDescription"-->
+        </p></div>
     </div>
     
 

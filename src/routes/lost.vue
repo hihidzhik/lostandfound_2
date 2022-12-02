@@ -1,28 +1,46 @@
 <script setup>
+import { ref } from 'vue';
 import { useStore } from '../store/main';
 const store = useStore();
+
+const currentThing = ref({
+    type: '',
+    owner: '',
+    description: '',
+    phone: '',
+    category: '',
+    createdAt: '',
+});
+
+const validateAndCreate = () => {
+    store.addNewLostedThing(currentThing);
+}
+
 </script>
 
 <template>
-    
+
     <div class="container1">
         <div class="page">
-        <span>LOSTandFOUND</span>
-        <p>Taganrog</p>
-        <router-link class="page" to="/index">Вернуться на главную</router-link>
-        <!--<a class="page" href="index.vue">Вернуться на главную</a>-->
+            <span>LOSTandFOUND</span>
+            <p>Taganrog</p>
+            <router-link class="page" to="/index">Вернуться на главную</router-link>
+            <!--<a class="page" href="index.vue">Вернуться на главную</a>-->
         </div>
     </div>
     <div id="1" class="container2">
-         <div class="text_style2">Потерял</div><br>
-         <form class="form_style">
+        <div class="text_style2">Потерял</div><br>
+        <form class="form_style">
             <select class="form_input" id="type" name="type">
                 <option value="lost">Потеря</option>
                 <option value="found">Находка</option>
             </select><br>
-            <input class="form_input" :value="store.newLostThing" @input="store.inputChangeHandler" type="text" placeholder="ФИО" required><br>
-            <input class="form_input" type="text" placeholder="Описание" required><br>
-            <input  class="form_input" type="number" placeholder="Номер телефона" required><br>
+            <input class="form_input" :value="currentThing.owner" @input="currentThing.owner = $event.target.value"
+                type="text" placeholder="ФИО" required><br>
+            <!--v-on:keypress.enter="store.addNewLostedThing"-->
+            <input class="form_input" :value="store.description" @input="store.inputDesc($event.target.value)"
+                type="text" placeholder="Описание" required><br>
+            <input class="form_input" type="number" placeholder="Номер телефона" required><br>
             <select class="form_input">
                 <option disabled value="">Выберите категорию</option>
                 <option value="other">Прочее</option>
@@ -33,68 +51,73 @@ const store = useStore();
                 <option value="clothes">Одежда и аксессуары</option>
                 <option value="jewelry">Драгоценности</option>
                 <option value="bags">Сумки</option>
-                
+
             </select><br>
             <input class="form_input" type="date"><br><br>
-            <input class="style_button" type="button" value="Отправить" @click="store.addNewLostedThing" >
-         </form><!--@click.prevent="store.addNewLostedThing(store.newLostThing)" v-on:click="addNewLostedThing"-->
+            <input class="style_button" type="button" value="Отправить" @click="validateAndCreate">
+        </form><!--@click.prevent="store.addNewLostedThing(store.newLostThing)" v-on:click="addNewLostedThing"-->
     </div>
-    
+
 
 </template>
 
 <style scoped>
-.container1{
-width: 500px;
-height: 1000px;
-background: rgb(238, 237, 237);
-margin: 0%;
-padding: 0%;
-float: left;
-position: absolute;
-font-size: 25px;
+.container1 {
+    width: 500px;
+    height: 1000px;
+    background: rgb(238, 237, 237);
+    margin: 0%;
+    padding: 0%;
+    float: left;
+    position: absolute;
+    font-size: 25px;
 
 
 }
-.container2{
-width: 80%;
-height: 1000px;
-background: rgb(255, 255, 255);
-margin: 0%;
-margin-left: 500px;
-margin-top: 50px;
-padding: 0%;
-float:right;
-position: fixed;
+
+.container2 {
+    width: 80%;
+    height: 1000px;
+    background: rgb(255, 255, 255);
+    margin: 0%;
+    margin-left: 500px;
+    margin-top: 50px;
+    padding: 0%;
+    float: right;
+    position: fixed;
 
 
 }
-.container3{
-background: rgb(0, 0, 0);
-width: 80%;
-height: 50px;
-float: right;
-margin-left: 500px;
-position: fixed;
+
+.container3 {
+    background: rgb(0, 0, 0);
+    width: 80%;
+    height: 50px;
+    float: right;
+    margin-left: 500px;
+    position: fixed;
 
 
 }
-.page{
+
+.page {
     color: #000;
     text-align: center;
     padding: 10px;
 
 
 }
-.text_style{
+
+.text_style {
     color: rgb(255, 255, 255);
     font-size: 17px;
-    font-style:normal;
+    font-style: normal;
     padding: 8%;
 
-   
+
 }
-.style_button{
+
+.style_button {
     background: rgb(238, 237, 237);
     display: inline-block;
     color: rgb(0, 0, 0);
@@ -109,16 +132,18 @@ position: fixed;
     cursor: pointer;
     transition: 0.3s;
 
-    
-}
-.text_style2{
-    color: rgb(0, 0, 0);
-    font-size: 20px;
-    font-style:normal;
-   margin-left: 300px;
 
 }
-.form_style{
+
+.text_style2 {
+    color: rgb(0, 0, 0);
+    font-size: 20px;
+    font-style: normal;
+    margin-left: 300px;
+
+}
+
+.form_style {
     margin-left: 150px;
     font-size: 50px;
     background: #ffffff;
@@ -130,11 +155,13 @@ position: fixed;
     height: 320px;
 
 }
-.form_grup{
-position: relative;
-margin-bottom: 32px;
+
+.form_grup {
+    position: relative;
+    margin-bottom: 32px;
 }
-.form_input{
+
+.form_input {
     width: 100%;
     padding: 0 0 10px 0;
     border: none;
@@ -143,5 +170,4 @@ margin-bottom: 32px;
     outline: none;
     transition: 0.3s;
 }
-
 </style>
