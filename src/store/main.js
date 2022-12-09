@@ -9,19 +9,20 @@ export const useStore = defineStore('main', {
       thingsDescription: [],
       newLostThing: '',
       description: '',
+
     }
   },
   actions: {
     increment() {
       this.count++
     },
-    addNewLostedThing() {
-      this.things.push(this.newLostThing);
-      this.newLostThing =''
-      console.log();
-      this.thingsDescription.push(this.description);
-      this.description=''
-      console.log();
+    addNewLostedThing(newLostThing) {
+      console.log(newLostThing.value);
+      this.things.push(newLostThing.value);
+      // this.newLostThing =''
+      // this.thingsDescription.push(this.description);
+      // this.description=''
+      
     },
     addNewDesc() {
       this.thingsDescription.push(this.description);

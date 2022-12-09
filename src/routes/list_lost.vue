@@ -1,89 +1,82 @@
 <script setup>
-import { useStore } from '../store/main';
-const mainStore = useStore();
+    import { useStore } from '../store/main';
+
+    const mainStore = useStore();
+
+    const map = {
+        'lost': 'Потеря',
+        'found': 'Находка',
+    }
+    const category = {
+        'other': 'Прочее',
+        'documents': 'Документы',
+        'keys': 'Ключи',
+        'tehnic': 'Техника',
+        'pats': 'Животные',
+        'clothes': 'Одежда и аксессуары',
+        'jewelry': 'Драгоценности',
+        'bags': 'Сумки',
+    }
 </script>
 
 <template>
     
-    <div class="container1">
-        <div class="page">
-        <span>LOSTandFOUND</span>
-        <p>Taganrog</p>
-        <router-link class="page" to="/index">Вернуться на главную</router-link>
+    <div class="main">
+        <div>
+            <p>Taganrog</p>
+            <router-link class="page2" to="/index">Вернуться на главную</router-link>
+        </div>
+        <div class="losts">
+            <div class="card" v-for="thing in mainStore.things">
+                <p>{{ 'Тип: '+ map[thing.type]}}</p>
+                <p>{{'ФИО: '+ thing.owner}}</p>
+                <p>{{' Описание: ' + thing.description }}</p>
+                <p>{{' Номер телефона: ' + thing.phone }}</p>
+                <p>{{'  Категория: ' + category[thing.category] }}</p>
+                <p>{{' Дата: ' + thing.date }}</p>
+            </div>
         </div>
     </div>
-    <div class="container2">
-         <div class="page">Список потерь</div>
-         <div v-for="thing in mainStore.things"  >
-            <p v-for="description in mainStore.thingsDescription"  >
-
-            {{ 'ФИО: '+ thing +' Описание:' + description}} 
-            <!-- <input v-model="text">
-            {{item}} -->
-         
-            {{  }}<!--v-model="descriotion" v-for="description in mainStore.thingsDescription"-->
-        </p></div>
-    </div>
-    
 
 </template>
 
 <style scoped>
-.container1{
-width: 500px;
-height: 1000px;
-background: rgb(238, 237, 237);
-margin: 0%;
-padding: 0%;
-float: left;
-position: absolute;
-font-size: 25px;
-
-
-}
-.container2{
-width: 80%;
-height: 1000px;
-background: rgb(255, 255, 255);
-margin: 0%;
-margin-left: 500px;
-margin-top: 50px;
-padding: 0%;
-float:right;
-position: fixed;
-
-
-}
-.container3{
-background: rgb(0, 0, 0);
-width: 80%;
-height: 50px;
-float: right;
-margin-left: 500px;
-position: fixed;
-
-
-}
-.page{
-    color: #000;
-    text-align: center;
-    padding: 10px;
-
-}
-.text_style{
-    color: rgb(255, 255, 255);
-    font-size: 17px;
-    font-style:normal;
-    padding: 8%;
-
-}
-.style_button{
-    background: #8c959d;
-    display: inline-block;
-    color: #fff;
-    padding: 1rem 1.5rem;
-    text-decoration: none;
-    border-radius: 3px;
-
-}
+    .main{
+        width: 100%;
+        height: 100%;
+        background: rgb(238, 237, 237);
+        margin: 0%;
+        font-size: 25px;
+    }
+    .main p
+    .card{
+        background: #ffffff;
+        border-radius: 10px;
+        box-shadow: 0 4px 16px #ccc;
+        letter-spacing: 1px;
+        width: 300px;
+        padding: 32px;
+        height: 300px;
+        position: absolute;
+    }
+    .losts{
+        margin: 0%;
+        margin-left: 400px;
+        position: absolute;
+        color: rgb(0, 0, 0);
+        text-align: left;
+        font-size: 20px;
+    }
+    .page2{
+        color: rgb(0, 0, 0);
+        text-align: left;
+        font-size: 20px;
+        position: absolute;
+    }
 </style>
+
+<!-- 
+camelCase
+PascalCase
+snack_case
+kebab-case -->
