@@ -20,71 +20,52 @@ const validateAndCreate = () => {
 </script>
 
 <template>
-    <div class="container1">
+    <div class="main">
         <div >
-        <span class="page">LOSTandFOUND</span><br><br>
-        <p>Taganrog</p><br><br>
-        <router-link class="page2" to="/index">Вернуться на главную</router-link>
-        
-       
+            <span class="page_text">LOSTandFOUND</span>
         </div >
-        <form class="form_style">
-            <select class="form_input" id="type" name="type" :value="currentThing.type" @input="currentThing.type = $event.target.value">
-                <option value="lost">Потеря</option>
-                <option value="found">Находка</option>
-            </select><br>
-            <input class="form_input" :value="currentThing.owner" @input="currentThing.owner = $event.target.value"
+            <form class="form_style">
+                <select class="form_input" id="type" name="type" :value="currentThing.type" @input="currentThing.type = $event.target.value">
+                    <option value="lost">Потеря</option>
+                    <option value="found">Находка</option>
+                </select><br>
+                <input class="form_input" :value="currentThing.owner" @input="currentThing.owner = $event.target.value"
                 type="text" placeholder="ФИО" required><br>
-            <input class="form_input" :value="currentThing.description" @input="currentThing.description =$event.target.value"
+                <input class="form_input" :value="currentThing.description" @input="currentThing.description =$event.target.value"
                 type="text" placeholder="Описание" required><br>
-            <input class="form_input" type="number" placeholder="Номер телефона" :value="currentThing.phone" @input="currentThing.phone = $event.target.value" required><br>
-            <select class="form_input" :value="currentThing.category" @input="currentThing.category =$event.target.value">
-                <option disabled value="">Выберите категорию</option>
-                <option value="other">Прочее</option>
-                <option value="documents">Документы</option>
-                <option value="keys">Ключи</option>
-                <option value="tehnic">Техника</option>
-                <option value="pats">Животные</option>
-                <option value="clothes">Одежда и аксессуары</option>
-                <option value="jewelry">Драгоценности</option>
-                <option value="bags">Сумки</option>
+                <input class="form_input" type="number" placeholder="Номер телефона" :value="currentThing.phone" @input="currentThing.phone = $event.target.value" required><br>
+                <select class="form_input" :value="currentThing.category" @input="currentThing.category =$event.target.value">
+                    <option disabled value="">Выберите категорию</option>
+                    <option value="other">Прочее</option>
+                    <option value="documents">Документы</option>
+                    <option value="keys">Ключи</option>
+                    <option value="tehnic">Техника</option>
+                    <option value="pats">Животные</option>
+                    <option value="clothes">Одежда и аксессуары</option>
+                    <option value="jewelry">Драгоценности</option>
+                    <option value="bags">Сумки</option>
 
-            </select><br>
-            <input class="form_input" type="date" :value="currentThing.date" @input="currentThing.date =$event.target.value"><br><br>
-            <input class="style_button" type="button" value="Отправить" @click="validateAndCreate">
-        </form>
-    </div>
+                </select><br>
+                <input class="form_input" type="date" :value="currentThing.date" @input="currentThing.date =$event.target.value"><br><br>
+                <input class="style_button" type="button" value="Отправить" @click="validateAndCreate">
+            </form>
+        </div>
 
 </template>
 
 <style scoped>
-    .container1 {
+    .main {
+        padding: 35px;
         width: 100%;
         height: 100%;
         background: rgb(238, 237, 237);
-        margin: 0%;
-        padding: 10%;
-        float: left;
-        position: absolute;
-        font-size: 25px;
     }
-    .page {
+    .page_text {
+        display:grid;
         color: rgb(0, 0, 0);
-        text-align: left;
-        font-size: 40px;
-        position: absolute;
-    }
-    .page2{
-        color: rgb(0, 0, 0);
-        text-align: left;
-        font-size: 20px;
-        position: absolute;
-    }
-    .page2{
-        color: rgb(0, 0, 0);
-        text-align: left;
-        font-size: 20px;
-        position: absolute;
+        width: 100%;
+        justify-content:center;
+        text-decoration: column;
     }
     .style_button {
         background: rgb(238, 237, 237);

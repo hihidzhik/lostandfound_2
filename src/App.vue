@@ -16,10 +16,13 @@ const currentRouteName = computed(() => {
 
 <template>
     <div class="header">
+        <div>
+            <router-link class="header_link" to="/index"><img class="header_icon" src="./assets/homeIcon.png"/></router-link>
+        </div>
         <span class="logo_text">LOSTandFOUND</span>
         <div class="header_links">
-            <router-link class="header_link" to="/list_found">Список находок</router-link>
-            <router-link class="header_link" to="/list_lost">Список потерь</router-link>
+            <router-link class="header_link" to="/list_found">СПИСОК НАХОДОК</router-link>
+            <router-link class="header_link" to="/list_lost">СПИСОК ПОТЕРЬ</router-link>
         </div>
     </div>
     <router-view></router-view>
@@ -39,7 +42,7 @@ const currentRouteName = computed(() => {
         height: 50px;
         box-shadow: 0 4px 16px #ccc;
         color: white;
-        justify-content: space-between;
+        justify-content:space-between;
         align-items: center;
         box-sizing: border-box;
     }
@@ -57,4 +60,9 @@ const currentRouteName = computed(() => {
     .logo_text{
         font-size: 30px;
     }
+    .header_icon{
+        height: 50px;
+        width: 50px;
+    }
+    
 </style>

@@ -20,59 +20,47 @@
 </script>
 
 <template>
-    
     <div class="main">
-        <div>
-            <p>Taganrog</p>
-            <router-link class="page2" to="/index">Вернуться на главную</router-link>
+        <div class="page_text">Список потерь</div>
+        <div class="card_block">
+        <div class="card" v-for="thing in mainStore.things">
+            <p>{{ 'Тип: '+ map[thing.type]}}</p>
+            <p>{{'ФИО: '+ thing.owner}}</p>
+            <p>{{' Описание: ' + thing.description }}</p>
+            <p>{{' Номер телефона: ' + thing.phone }}</p>
+            <p>{{'  Категория: ' + category[thing.category] }}</p>
+            <p>{{' Дата: ' + thing.date }}</p>
         </div>
-        <div class="losts">
-            <div class="card" v-for="thing in mainStore.things">
-                <p>{{ 'Тип: '+ map[thing.type]}}</p>
-                <p>{{'ФИО: '+ thing.owner}}</p>
-                <p>{{' Описание: ' + thing.description }}</p>
-                <p>{{' Номер телефона: ' + thing.phone }}</p>
-                <p>{{'  Категория: ' + category[thing.category] }}</p>
-                <p>{{' Дата: ' + thing.date }}</p>
-            </div>
         </div>
     </div>
 
 </template>
 
-<style scoped>
-    .main{
+<style >
+    .main {
         width: 100%;
         height: 100%;
         background: rgb(238, 237, 237);
-        margin: 0%;
-        font-size: 25px;
     }
-    .main p
-    .card{
+    .card_block {
+        display: flex;
+        gap: 30px;
+        margin-left: 35px;
+    }
+    .card {
+        display:block;
+        color: rgb(0, 0, 0);
+        font-size: 20px;
         background: #ffffff;
         border-radius: 10px;
         box-shadow: 0 4px 16px #ccc;
         letter-spacing: 1px;
-        width: 300px;
-        padding: 32px;
-        height: 300px;
-        position: absolute;
     }
-    .losts{
-        margin: 0%;
-        margin-left: 400px;
-        position: absolute;
+    .page_text {
+        display: block;
         color: rgb(0, 0, 0);
-        text-align: left;
-        font-size: 20px;
-    }
-    .page2{
-        color: rgb(0, 0, 0);
-        text-align: left;
-        font-size: 20px;
-        position: absolute;
-    }
+        justify-content:center;
+    } 
 </style>
 
 <!-- 
