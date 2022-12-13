@@ -13,59 +13,89 @@ const currentThing = ref({
 });
 
 const validateAndCreate = () => {
-    console.log(currentThing)
-    store.addNewLostedThing(currentThing);
+    console.log(currentThing);
+    if (currentThing.value.type === 'lost') {
+        console.log('addNewLostedThing');
+        store.addNewLostedThing(currentThing);
+    } else {
+        console.log('addNewFoundThing');
+        store.addNewFoundThing(currentThing);
+    }
 }
 
 </script>
 
 <template>
     <div class="main">
-        <div >
-            <span class="page_text">LOSTandFOUND</span>
-        </div >
-            <form class="form_style">
-                <select class="form_input" id="type" name="type" :value="currentThing.type" @input="currentThing.type = $event.target.value">
-                    <option value="lost">Потеря</option>
-                    <option value="found">Находка</option>
-                </select><br>
-                <input class="form_input" :value="currentThing.owner" @input="currentThing.owner = $event.target.value"
-                type="text" placeholder="ФИО" required><br>
-                <input class="form_input" :value="currentThing.description" @input="currentThing.description =$event.target.value"
-                type="text" placeholder="Описание" required><br>
-                <input class="form_input" type="number" placeholder="Номер телефона" :value="currentThing.phone" @input="currentThing.phone = $event.target.value" required><br>
-                <select class="form_input" :value="currentThing.category" @input="currentThing.category =$event.target.value">
-                    <option disabled value="">Выберите категорию</option>
-                    <option value="other">Прочее</option>
-                    <option value="documents">Документы</option>
-                    <option value="keys">Ключи</option>
-                    <option value="tehnic">Техника</option>
-                    <option value="pats">Животные</option>
-                    <option value="clothes">Одежда и аксессуары</option>
-                    <option value="jewelry">Драгоценности</option>
-                    <option value="bags">Сумки</option>
-
-                </select><br>
-                <input class="form_input" type="date" :value="currentThing.date" @input="currentThing.date =$event.target.value"><br><br>
-                <input class="style_button" type="button" value="Отправить" @click="validateAndCreate">
-            </form>
+        <div class="page_text">
+            <div class="page_text">Заполните форму для создания объявления</div>
+                <form class="form_style" @submit.prevent="validateAndCreate">
+                    <select class="form_input" id="type" name="type" :value="currentThing.type" @input="currentThing.type = $event.target.value">
+                        <option value="lost">Потеря</option>
+                        <option value="found">Находка</option>
+                    </select><br>
+                    <input
+                        class="form_input"
+                        :value="currentThing.owner"
+                        @input="currentThing.owner = $event.target.value"
+                        type="text"
+                        placeholder="ФИО"
+                        required
+                        maxlength="50"
+                    ><br>
+                    <input class="form_input" :value="currentThing.description" @input="currentThing.description =$event.target.value"
+                    type="text" placeholder="Описание" required maxlength="100"><br>
+                    <input
+                        class="form_input"
+                        type="tel"
+                        placeholder="Номер телефона (формат: х ххх ххх-хх-хх)"
+                        :value="currentThing.phone"
+                        @input="currentThing.phone = $event.target.value"
+                        required
+                        pattern="[0-9]{1} [0-9]{3} [0-9]{3}-[0-9]{2}-[0-9]{2}"
+                        name="tel"
+                        size="20"
+                        maxlength="50"
+                    ><br>
+                    <select
+                        class="form_input"
+                        :value="currentThing.category"
+                        @input="currentThing.category =$event.target.value">
+                        <option disabled value="">Выберите категорию</option>
+                        <option value="other">Прочее</option>
+                        <option value="documents">Документы</option>
+                        <option value="keys">Ключи</option>
+                        <option value="tehnic">Техника</option>
+                        <option value="pats">Животные</option>
+                        <option value="clothes">Одежда и аксессуары</option>
+                        <option value="jewelry">Драгоценности</option>
+                        <option value="bags">Сумки</option>
+                    </select><br>
+                    <input
+                        class="form_input"
+                        type="date" :value="currentThing.date"
+                        @input="currentThing.date =$event.target.value"><br><br>
+                    <input class="style_button" type="submit" value="Отправить">
+                </form>
+            </div >
         </div>
 
 </template>
 
 <style scoped>
     .main {
-        padding: 35px;
         width: 100%;
         height: 100%;
         background: rgb(238, 237, 237);
     }
     .page_text {
-        display:grid;
+        display: grid;
         color: rgb(0, 0, 0);
         width: 100%;
-        justify-content:center;
-        text-decoration: column;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        font-size: 20px;
+        justify-content: center;
     }
     .style_button {
         background: rgb(238, 237, 237);
@@ -81,11 +111,8 @@ const validateAndCreate = () => {
         outline: none;
         cursor: pointer;
         transition: 0.3s;
-
-
     }
     .form_style {
-        margin-left: 500px;
         font-size: 50px;
         background: #ffffff;
         border-radius: 10px;
@@ -94,7 +121,6 @@ const validateAndCreate = () => {
         width: 300px;
         padding: 32px;
         height: 320px;
-        position: absolute;
 
     }
     .form_input {

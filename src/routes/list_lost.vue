@@ -23,14 +23,14 @@
     <div class="main">
         <div class="page_text">Список потерь</div>
         <div class="card_block">
-        <div class="card" v-for="thing in mainStore.things">
-            <p>{{ 'Тип: '+ map[thing.type]}}</p>
-            <p>{{'ФИО: '+ thing.owner}}</p>
-            <p>{{' Описание: ' + thing.description }}</p>
-            <p>{{' Номер телефона: ' + thing.phone }}</p>
-            <p>{{'  Категория: ' + category[thing.category] }}</p>
-            <p>{{' Дата: ' + thing.date }}</p>
-        </div>
+            <div class="card" v-for="thing in mainStore.lostedThings">
+                <p>{{ 'Тип: '+ map[thing.type]}}</p>
+                <p>{{'ФИО: '+ thing.owner}}</p>
+                <p>{{' Описание: ' + thing.description }}</p>
+                <p>{{' Номер телефона: ' + thing.phone }}</p>
+                <p>{{'  Категория: ' + category[thing.category] }}</p>
+                <p>{{' Дата: ' + thing.date }}</p>
+            </div>
         </div>
     </div>
 
@@ -48,18 +48,27 @@
         margin-left: 35px;
     }
     .card {
-        display:block;
+        display: block;
+        flex-wrap: wrap;
+        overflow-wrap:break-word;
+        width: 400px;
         color: rgb(0, 0, 0);
         font-size: 20px;
         background: #ffffff;
         border-radius: 10px;
         box-shadow: 0 4px 16px #ccc;
         letter-spacing: 1px;
+        padding:10px;
     }
     .page_text {
-        display: block;
+        display: flex;
+        justify-content: center;
+        font-size: 25px;
+        padding-top: 2%;
+        padding-bottom: 2%;
         color: rgb(0, 0, 0);
-        justify-content:center;
+
+
     } 
 </style>
 

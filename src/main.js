@@ -13,7 +13,6 @@ const pinia = createPinia()
 const routes = [
   { path: '/', name: 'index', component: IndexComponent },
   { path: '/lost', name: 'lost', component: LostComponent },
-  { path: '/index', name: 'index', component: IndexComponent },
   { path: '/list_found', name: 'list_found', component: LfComponent },
   { path: '/list_lost', name: 'list_lost', component: LlComponent },
 ]

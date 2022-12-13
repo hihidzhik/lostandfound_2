@@ -17,7 +17,7 @@ const currentRouteName = computed(() => {
 <template>
     <div class="header">
         <div>
-            <router-link class="header_link" to="/index"><img class="header_icon" src="./assets/homeIcon.png"/></router-link>
+            <router-link class="header_link" to="/"><img class="header_icon" src="./assets/homeIcon.png"/></router-link>
         </div>
         <span class="logo_text">LOSTandFOUND</span>
         <div class="header_links">
