@@ -33,7 +33,7 @@ const validateAndCreate = () => {
                     <select class="form_input" id="type" name="type" :value="currentThing.type" @input="currentThing.type = $event.target.value">
                         <option value="lost">Потеря</option>
                         <option value="found">Находка</option>
-                    </select><br>
+                    </select>
                     <input
                         class="form_input"
                         :value="currentThing.owner"
@@ -42,9 +42,9 @@ const validateAndCreate = () => {
                         placeholder="ФИО"
                         required
                         maxlength="50"
-                    ><br>
+                    >
                     <input class="form_input" :value="currentThing.description" @input="currentThing.description =$event.target.value"
-                    type="text" placeholder="Описание" required maxlength="100"><br>
+                    type="text" placeholder="Описание" required maxlength="100">
                     <input
                         class="form_input"
                         type="tel"
@@ -56,11 +56,13 @@ const validateAndCreate = () => {
                         name="tel"
                         size="20"
                         maxlength="50"
-                    ><br>
+                    >
                     <select
+                        required
                         class="form_input"
                         :value="currentThing.category"
-                        @input="currentThing.category =$event.target.value">
+                        @input="currentThing.category =$event.target.value"
+                    >
                         <option disabled value="">Выберите категорию</option>
                         <option value="other">Прочее</option>
                         <option value="documents">Документы</option>
@@ -70,11 +72,11 @@ const validateAndCreate = () => {
                         <option value="clothes">Одежда и аксессуары</option>
                         <option value="jewelry">Драгоценности</option>
                         <option value="bags">Сумки</option>
-                    </select><br>
+                    </select>
                     <input
                         class="form_input"
                         type="date" :value="currentThing.date"
-                        @input="currentThing.date =$event.target.value"><br><br>
+                        @input="currentThing.date =$event.target.value">
                     <input class="style_button" type="submit" value="Отправить">
                 </form>
             </div >
@@ -98,16 +100,13 @@ const validateAndCreate = () => {
         justify-content: center;
     }
     .style_button {
+        margin-top: 20px;
         background: rgb(238, 237, 237);
-        display: inline-block;
         color: rgb(0, 0, 0);
         padding: 10px 20px;
         border: none;
         width: 150px;
-        text-decoration: none;
         border-radius: 5px;
-        text-align: center;
-        position:absolute;
         outline: none;
         cursor: pointer;
         transition: 0.3s;

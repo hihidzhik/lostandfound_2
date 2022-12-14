@@ -31,7 +31,8 @@ const currentRouteName = computed(() => {
 <style>
     body, #app {
         width: 100%;
-        height: 100%; 
+        height: 100%;
+        background: rgb(238, 237, 237); 
     }
 
     .header {

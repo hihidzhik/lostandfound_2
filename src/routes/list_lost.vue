@@ -40,26 +40,30 @@
     .main {
         width: 100%;
         height: 100%;
-        background: rgb(238, 237, 237);
     }
     .card_block {
-        display: flex;
-        gap: 30px;
-        margin-left: 35px;
+        display: grid;
+        margin: 0 30px;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 20px;
+        padding-bottom: 10px;
     }
+
     .card {
         display: block;
         flex-wrap: wrap;
         overflow-wrap:break-word;
-        width: 400px;
         color: rgb(0, 0, 0);
         font-size: 20px;
         background: #ffffff;
         border-radius: 10px;
         box-shadow: 0 4px 16px #ccc;
         letter-spacing: 1px;
-        padding:10px;
+        padding: 10px;
+        max-width: 400px;
     }
+
+
     .page_text {
         display: flex;
         justify-content: center;
