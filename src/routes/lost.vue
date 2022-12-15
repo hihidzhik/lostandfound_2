@@ -13,14 +13,12 @@ const currentThing = ref({
 });
 
 const validateAndCreate = () => {
-    console.log(currentThing);
     if (currentThing.value.type === 'lost') {
-        console.log('addNewLostedThing');
         store.addNewLostedThing(currentThing);
     } else {
-        console.log('addNewFoundThing');
         store.addNewFoundThing(currentThing);
     }
+
 }
 
 </script>
