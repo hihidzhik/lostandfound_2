@@ -1,7 +1,9 @@
 <script setup>
 import { ref } from 'vue';
+import { useRouter } from 'vue-router';
 import { useStore } from '../store/main';
 const store = useStore();
+const router = useRouter();
 
 const currentThing = ref({
     type: 'lost',
@@ -18,7 +20,7 @@ const validateAndCreate = () => {
     } else {
         store.addNewFoundThing(currentThing);
     }
-
+    router.push('/');
 }
 
 </script>
@@ -28,7 +30,12 @@ const validateAndCreate = () => {
         <div class="page_text">
             <div class="page_text">Заполните форму для создания объявления</div>
                 <form class="form_style" @submit.prevent="validateAndCreate">
-                    <select class="form_input" id="type" name="type" :value="currentThing.type" @input="currentThing.type = $event.target.value">
+                    <select
+                        class="form_input"
+                        id="type" name="type"
+                        :value="currentThing.type"
+                        @input="currentThing.type = $event.target.value"
+                    >
                         <option value="lost">Потеря</option>
                         <option value="found">Находка</option>
                     </select>
@@ -41,8 +48,15 @@ const validateAndCreate = () => {
                         required
                         maxlength="50"
                     >
-                    <input class="form_input" :value="currentThing.description" @input="currentThing.description =$event.target.value"
-                    type="text" placeholder="Описание" required maxlength="100">
+                    <input
+                        class="form_input"
+                        :value="currentThing.description"
+                        @input="currentThing.description =$event.target.value"
+                        type="text"
+                        placeholder="Описание"
+                        required
+                        maxlength="100"
+                    >
                     <input
                         class="form_input"
                         type="tel"
@@ -72,10 +86,16 @@ const validateAndCreate = () => {
                         <option value="bags">Сумки</option>
                     </select>
                     <input
+                        required
                         class="form_input"
                         type="date" :value="currentThing.date"
-                        @input="currentThing.date =$event.target.value">
-                    <input class="style_button" type="submit" value="Отправить">
+                        @input="currentThing.date =$event.target.value"
+                    >
+                    <input
+                        class="style_button"
+                        type="submit"
+                        value="Отправить"
+                    >
                 </form>
             </div >
         </div>

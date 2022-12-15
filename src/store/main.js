@@ -1,30 +1,39 @@
 import { defineStore } from 'pinia'
 import { vModelText } from 'vue';
 
-export const useStore = defineStore('main', {
-  state: () => {
+const saveLostedThings = (data) => {
+  localStorage.setItem('lost', JSON.stringify(data));
+}
 
+const saveFoundThings =(data) => {
+  localStorage.setItem('found', JSON.stringify(data))
+}
+
+const loadFoundThing = () => {
+  return JSON.parse(localStorage.getItem('found'));
+}
+
+const loadLostedThing = () => {
+  return JSON.parse(localStorage.getItem('lost'));
+}
+
+export const useStore = defineStore('main', {
+  state() {
     return {
       count: 0,
-      lostedThings: [],
-      foundThings:[],
+      lostedThings: loadLostedThing(),
+      foundThings: loadFoundThing(),
 
     }
   },
   actions: {
-    increment() {
-      this.count++
-    },
     addNewLostedThing(newLostThing) {
-      console.log(newLostThing.value);
-      console.log(JSON.parse(JSON.stringify(this.lostedThings)));
       this.lostedThings.push(newLostThing.value);
-      console.log(JSON.parse(JSON.stringify(this.lostedThings)));
+      saveLostedThings(this.lostedThings);
     },
     addNewFoundThing(newFoundThing) {
       this.foundThings.push(newFoundThing.value);
-      localStorage.setItem('found',foundThings)
-      
+      saveFoundThings(this.foundThings);
     },
   },
 })

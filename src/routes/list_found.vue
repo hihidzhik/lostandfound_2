@@ -49,17 +49,24 @@ const category = {
         font-size: 25px;
     }
     .card_block {
-        display: flex;
-        gap: 30px;
-        margin-left: 35px;
+        display: grid;
+        margin: 0 30px;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 20px;
+        padding-bottom: 10px;
     }
+
     .card {
-        display:block;
+        display: block;
+        flex-wrap: wrap;
+        overflow-wrap:break-word;
         color: rgb(0, 0, 0);
         font-size: 20px;
         background: #ffffff;
         border-radius: 10px;
         box-shadow: 0 4px 16px #ccc;
         letter-spacing: 1px;
+        padding: 10px;
+        max-width: 400px;
     }
 </style>
