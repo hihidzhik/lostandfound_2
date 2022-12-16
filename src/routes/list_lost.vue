@@ -21,7 +21,7 @@
 
 <template>
     <div class="main">
-        <div class="page_text">Список потерь</div>
+        <div class="page_text">Список потерь</div><div>Категория</div>
         <div class="card_block">
             <div class="card" v-for="thing in mainStore.lostedThings">
                 <p>{{ 'Тип: '+ map[thing.type]}}</p>

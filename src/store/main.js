@@ -10,11 +10,11 @@ const saveFoundThings =(data) => {
 }
 
 const loadFoundThing = () => {
-  return JSON.parse(localStorage.getItem('found'));
+  return JSON.parse(localStorage.getItem('found')) ?? [];
 }
 
 const loadLostedThing = () => {
-  return JSON.parse(localStorage.getItem('lost'));
+  return JSON.parse(localStorage.getItem('lost')) ?? [];
 }
 
 export const useStore = defineStore('main', {
